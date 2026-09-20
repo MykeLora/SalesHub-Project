@@ -11,8 +11,8 @@ namespace SalesHub.Domain.Commons
         public int Id { get; set; }
         public string? CreatedBy { get; set; }
         public string? LastModifiedBy { get; set; }
-        public DateTime? Created { get; set; }
-        public DateTime? UpdatedAt { get; set; }
+        public DateTime? Created { get; set; } = DateTime.UtcNow;
+        public DateTime? UpdatedAt { get; set; } = DateTime.UtcNow;
     }
 }
 
