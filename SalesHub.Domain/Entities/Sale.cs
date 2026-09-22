@@ -17,7 +17,7 @@ namespace SalesHub.Domain.Entities
         public decimal Total { get; set; }
 
         public int CustomerId { get; set; }
-        public int UsetrId { get; set; }
+        public int UserId { get; set; }
         
         public virtual Customer? Customer { get; set; }
         public virtual User? User { get; set; }
