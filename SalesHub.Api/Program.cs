@@ -1,4 +1,6 @@
 
+using SalesHub.Ioc.DependencyInjection;
+
 namespace SalesHub.Api
 {
     public class Program
@@ -8,6 +10,8 @@ namespace SalesHub.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddSalesHubServices(
+                builder.Configuration);
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
