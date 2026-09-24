@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SalesHub.Application\SalesHub.Application.csproj" />
     <ProjectReference Include="..\SalesHub.Domain\SalesHub.Domain.csproj" />
   </ItemGroup>
 
@@ -25,7 +26,6 @@
     <Folder Include="Authentication\Password\" />
     <Folder Include="Email\" />
     <Folder Include="Services\" />
-    <Folder Include="Persistence\Repositories\" />
   </ItemGroup>
 
 </Project>

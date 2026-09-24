@@ -1,7 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SalesHub.Application.Interface;
+using SalesHub.Application.Interface.Repositories;
 using SalesHub.Infrastructure.Persistence.Context;
+using SalesHub.Infrastructure.Persistence.Repositories;
+using SalesHub.Infrastructure.Persistence.UnitOfWork;
+using SalesHub.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +28,12 @@ namespace SalesHub.Ioc.DependencyInjection
             {
                 options.UseSqlServer(connectionString);
             });
+
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+            services.AddScoped<IProductRepository, ProductRepository>();
+
+            services.AddScoped<IUnitOfwork, UnitOfWork>();
 
             return services;
         }
