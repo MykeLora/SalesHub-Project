@@ -11,10 +11,16 @@ namespace SalesHub.Application.Interface.Repositories
     {
         Task<T?> GetByIdAsync(int id);
         Task<IEnumerable<T>> GetAllAsync();
+
         Task<IEnumerable<T>> FindAsync(
             Expression<Func<T, bool>> predicate);
+
         Task AddAsync(T entity);
-        void Update(T entity);
-        void Delete(T entity);
+
+        Task Update(T entity);
+
+        Task<bool> DeleteAsync(int id);
+
+        Task<List<T>> GetAllWithIncludes(List<string> properties);
     }
 }
