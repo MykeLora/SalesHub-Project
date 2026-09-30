@@ -34,11 +34,11 @@ public class GenericService<CreateDTO, UpdateDTO, Entity, Response>
         {
             var entity = _mapper.Map<Entity>(createDTO);
 
-            var createdEntity = _repo.AddAsync(entity);
+            await _repo.AddAsync(entity);
 
             await _unitOfWork.SaveChangesAsync();
 
-            var response = _mapper.Map<Response>(createdEntity);
+            var response = _mapper.Map<Response>(entity);
 
             return new ApiResponse<Response>(201, response);
         }
@@ -123,14 +123,14 @@ public class GenericService<CreateDTO, UpdateDTO, Entity, Response>
     }
 
     public virtual async Task<ApiResponse<Response>> UpdateAsync(
-        int id,
-        UpdateDTO updateDTO)
+     int id,
+     UpdateDTO updateDTO)
     {
         try
         {
             var entity = await _repo.GetByIdAsync(id);
 
-            if (entity is null)
+            if (entity == null)
             {
                 return new ApiResponse<Response>(
                     404,
@@ -139,15 +139,13 @@ public class GenericService<CreateDTO, UpdateDTO, Entity, Response>
 
             _mapper.Map(updateDTO, entity);
 
-            await _repo.UpdateAsync(entity);
+             _repo.Update(entity);
 
             await _unitOfWork.SaveChangesAsync();
 
             var response = _mapper.Map<Response>(entity);
 
-            return new ApiResponse<Response>(
-                200,
-                response);
+            return new ApiResponse<Response>(200, response);
         }
         catch (Exception ex)
         {
@@ -156,4 +154,6 @@ public class GenericService<CreateDTO, UpdateDTO, Entity, Response>
                 $"An error occurred while updating the entity: {ex.Message}");
         }
     }
+
+
 }

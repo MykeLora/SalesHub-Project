@@ -17,7 +17,7 @@ namespace SalesHub.Application.Interface.Repositories
 
         Task AddAsync(T entity);
 
-        Task Update(T entity);
+        void Update(T entity);
 
         Task<bool> DeleteAsync(int id);
 

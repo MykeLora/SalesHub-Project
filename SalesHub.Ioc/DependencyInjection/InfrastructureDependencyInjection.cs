@@ -29,9 +29,9 @@ namespace SalesHub.Ioc.DependencyInjection
                 options.UseSqlServer(connectionString);
             });
 
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             services.AddScoped<IUnitOfwork, UnitOfWork>();
 

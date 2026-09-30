@@ -14,7 +14,9 @@ namespace SalesHub.Ioc.DependencyInjection
             this IServiceCollection services,
             IConfiguration configuration)
         {
+            services.AddApplication();
             services.AddInfrastructure(configuration);
+
             return services;
         }
     }

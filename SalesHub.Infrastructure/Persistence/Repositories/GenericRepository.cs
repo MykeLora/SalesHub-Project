@@ -75,11 +75,10 @@ namespace SalesHub.Infrastructure.Persistence.Repositories
             return await _dbSet.FindAsync(id);
         }
 
-        public virtual Task Update(T entity)
+        public virtual void Update(T entity)
         {
             _dbSet.Update(entity);
 
-            return Task.CompletedTask;
         }
     }
 }
