@@ -45,7 +45,7 @@ namespace SalesHub.Application.Services
             {
                 return new ApiResponse<List<ProductDto>>(
                     500,
-                    $"An error ocurred while retrievinf active products: {ex.Message}");
+                    $"An error ocurred while retrievin active products: {ex.Message}");
             }
         }
 
