@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SalesHub.Application\SalesHub.Application.csproj" />
     <ProjectReference Include="..\SalesHub.Ioc\SalesHub.Ioc.csproj" />
   </ItemGroup>
 

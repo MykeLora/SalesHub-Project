@@ -1,4 +1,5 @@
 
+using Microsoft.Extensions.DependencyInjection;
 using SalesHub.Ioc.DependencyInjection;
 
 namespace SalesHub.Api
