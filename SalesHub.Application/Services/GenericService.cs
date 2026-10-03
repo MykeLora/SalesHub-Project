@@ -27,6 +27,7 @@ public class GenericService<CreateDTO, UpdateDTO, Entity, Response>
         _unitOfWork = unitOfWork;
     }
 
+
     public virtual async Task<ApiResponse<Response>> CreateAsync(
         CreateDTO createDTO)
     {
@@ -45,8 +46,8 @@ public class GenericService<CreateDTO, UpdateDTO, Entity, Response>
         catch (Exception ex)
         {
             return new ApiResponse<Response>(
-                500,
-                $"An error occurred while creating the entity: {ex.Message}");
+                  500,
+                  $"{ex.GetType().Name}: {ex.Message}\n{ex.StackTrace}");
         }
     }
 

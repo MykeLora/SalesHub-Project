@@ -12,6 +12,5 @@ namespace SalesHub.Application.DTOs.Category
 
         public string Description { get; set; } = string.Empty;
 
-        public bool IsActive { get; set; }
     }
 }
