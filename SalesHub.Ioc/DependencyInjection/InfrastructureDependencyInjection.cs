@@ -32,6 +32,8 @@ namespace SalesHub.Ioc.DependencyInjection
 
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddScoped<IUnitOfwork, UnitOfWork>();
 

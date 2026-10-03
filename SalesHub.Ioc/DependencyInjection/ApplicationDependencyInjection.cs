@@ -28,10 +28,15 @@ namespace SalesHub.Ioc.DependencyInjection
             {
                 cfg.AddProfile<ProductProfile>();
                 cfg.AddProfile<CategoryProfile>();
+                cfg.AddProfile<CustomerProfile>();
+                cfg.AddProfile<UserProfile>();
+
             });
 
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IUserService, UserService>();
 
             return services;
         }
