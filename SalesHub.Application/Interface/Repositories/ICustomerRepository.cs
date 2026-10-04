@@ -10,5 +10,6 @@ namespace SalesHub.Application.Interface.Repositories
 {
     public interface ICustomerRepository : IGenericRepository<Customer>
     {
+        Task<Customer?> GetByNationalIdAsync(string nationalId);
     }
 }

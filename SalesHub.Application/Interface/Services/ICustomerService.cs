@@ -3,6 +3,7 @@ using SalesHub.Application.Wrappers;
 using SalesHub.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace SalesHub.Application.Interface.Services
 {
     public interface ICustomerService : IGenericService<CreateCustomerDto,UpdateCustomerDto,Customer,CustomerDto>
     {
+        Task<ApiResponse<CustomerDto>> GetByNationalIdAsync(string nationalId);
 
     }
 }

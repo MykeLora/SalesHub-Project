@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,6 +18,7 @@ namespace SalesHub.Application.Interface.Services
         Task<ApiResponse<Response>> UpdateAsync(int id,UpdateDTO updateDTO);
         Task<ApiResponse<Response?>> GetByIdAsync(int id);
         Task<ApiResponse<List<Response>>> GetAllAsync();
+        Task<bool> ExistsAsync(Expression<Func<Entity, bool>> predicate);
         Task<ApiResponse<bool>> DeleteAsync(int id);
     }
 }

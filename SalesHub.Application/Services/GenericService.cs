@@ -3,6 +3,7 @@ using SalesHub.Application.Interface;
 using SalesHub.Application.Interface.Repositories;
 using SalesHub.Application.Interface.Services;
 using SalesHub.Application.Wrappers;
+using System.Linq.Expressions;
 
 namespace SalesHub.Application.Services;
 
@@ -76,6 +77,11 @@ public class GenericService<CreateDTO, UpdateDTO, Entity, Response>
         }
     }
 
+    public virtual async Task<bool> ExistsAsync(
+        Expression<Func<Entity, bool>> predicate)
+    {
+        return await _repo.ExistsAsync(predicate);
+    }
     public virtual async Task<ApiResponse<List<Response>>> GetAllAsync()
     {
         try

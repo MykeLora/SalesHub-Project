@@ -25,6 +25,31 @@ namespace SalesHub.Application.Services
 
         }
 
-      
+        public async Task<ApiResponse<CustomerDto>> GetByNationalIdAsync(string nationalId)
+        {
+            try
+            {
+                var customer = await _customerRepository.GetByNationalIdAsync(nationalId);
+
+                if (customer is null)
+                {
+                    return new ApiResponse<CustomerDto>(
+                        404, "Customer not found.");
+                }
+
+                var response = _mapper.Map<CustomerDto>(customer);
+
+                return new ApiResponse<CustomerDto>(
+                    200, response);
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse<CustomerDto>(
+                500,
+                $"An error occurred while retrieving the customer: {ex.Message}");
+            }
+        }
+
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SalesHub.Application.DTOs.Sale;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +7,11 @@ using System.Threading.Tasks;
 
 namespace SalesHub.Application.DTOs.Customer
 {
-    public class UpdateCustomerDto
+    public class CustomerWithSalesDto
     {
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public string NationalId { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
-
-        public string Phone { get; set; } = string.Empty;
-
-        public string Address { get; set; } = string.Empty;
-
-        public bool IsActive { get; set; }
+        public List<SaleDto> Sales { get; set; } = new List<SaleDto>();
     }
 }

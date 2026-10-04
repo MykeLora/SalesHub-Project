@@ -14,7 +14,8 @@ namespace SalesHub.Application.Interface.Repositories
 
         Task<IEnumerable<T>> FindAsync(
             Expression<Func<T, bool>> predicate);
-
+        Task<bool> ExistsAsync(
+            Expression<Func<T, bool>> predicate);
         Task AddAsync(T entity);
 
         void Update(T entity);
