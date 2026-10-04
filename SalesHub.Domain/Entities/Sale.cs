@@ -13,9 +13,10 @@ namespace SalesHub.Domain.Entities
         public DateTime SaleDate { get; set; }
         public decimal SubTotal { get; set; }
         public decimal Tax { get; set; }
+        public decimal DiscountPercentage { get; set; }
         public decimal Discount { get; set; }
         public decimal Total { get; set; }
-
+        public string SaleNumber { get; set; } = string.Empty;
         public int CustomerId { get; set; }
         public int UserId { get; set; }
         

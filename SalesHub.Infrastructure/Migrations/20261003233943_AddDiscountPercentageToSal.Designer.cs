@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SalesHub.Infrastructure.Persistence.Context;
 
@@ -11,9 +12,11 @@ using SalesHub.Infrastructure.Persistence.Context;
 namespace SalesHub.Infrastructure.Migrations
 {
     [DbContext(typeof(SalesHubDbContext))]
-    partial class SalesHubDbContextModelSnapshot : ModelSnapshot
+    [Migration("20261003233943_AddDiscountPercentageToSal")]
+    partial class AddDiscountPercentageToSal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,11 +104,6 @@ namespace SalesHub.Infrastructure.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<string>("NationalId")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -117,9 +115,6 @@ namespace SalesHub.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
-                        .IsUnique();
-
-                    b.HasIndex("NationalId")
                         .IsUnique();
 
                     b.ToTable("Customers", (string)null);
@@ -269,11 +264,6 @@ namespace SalesHub.Infrastructure.Migrations
                     b.Property<DateTime>("SaleDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("SaleNumber")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
                     b.Property<decimal>("SubTotal")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
@@ -297,9 +287,6 @@ namespace SalesHub.Infrastructure.Migrations
                     b.HasIndex("CustomerId");
 
                     b.HasIndex("SaleDate");
-
-                    b.HasIndex("SaleNumber")
-                        .IsUnique();
 
                     b.HasIndex("UserId");
 

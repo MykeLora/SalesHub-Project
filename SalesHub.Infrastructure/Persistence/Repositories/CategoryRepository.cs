@@ -12,11 +12,9 @@ namespace SalesHub.Infrastructure.Persistence.Repositories
 {
     public class CategoryRepository : GenericRepository<Category>, ICategoryRepository
     {
-        private readonly SalesHubDbContext _context;
         
         public CategoryRepository(SalesHubDbContext context) : base(context)
-        {
-            _context = context;       
+        {      
         }
         public async Task<IEnumerable<Category>> GetActiveCategoriesAsync()
         {

@@ -42,6 +42,10 @@ namespace SalesHub.Infrastructure.Persistence.EntityConfigurations
                 .IsRequired()
                 .HasPrecision(18, 2);
 
+            builder.Property(s => s.DiscountPercentage)
+                .IsRequired()
+                .HasPrecision(5, 2);
+
             builder.Property(s => s.Discount)
                 .IsRequired()
                 .HasPrecision(18, 2);
@@ -50,7 +54,10 @@ namespace SalesHub.Infrastructure.Persistence.EntityConfigurations
                 .IsRequired()
                 .HasPrecision(18, 2);
 
-   
+            builder.Property(s => s.SaleNumber)
+                .IsRequired()
+                .HasMaxLength(20);
+
             builder.HasOne(s => s.Customer)
                 .WithMany(c => c.Sales)
                 .HasForeignKey(s => s.CustomerId)
@@ -72,6 +79,9 @@ namespace SalesHub.Infrastructure.Persistence.EntityConfigurations
             builder.HasIndex(s => s.UserId);
 
             builder.HasIndex(s => s.SaleDate);
+
+            builder.HasIndex(s => s.SaleNumber)
+                .IsUnique();
         }
     }
 }

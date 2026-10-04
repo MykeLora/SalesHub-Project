@@ -18,5 +18,11 @@ namespace SalesHub.Infrastructure.Persistence.Repositories
         {
         }
 
+        public async Task<Customer?> GetByNationalIdAsync(string nationalId)
+        {
+            return await _context.Customers
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.NationalId == nationalId);
+        }
     }
 }

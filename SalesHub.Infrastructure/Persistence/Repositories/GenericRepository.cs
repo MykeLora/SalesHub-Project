@@ -39,6 +39,11 @@ namespace SalesHub.Infrastructure.Persistence.Repositories
             return true;
         }
 
+        public async Task<bool> ExistsAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await _dbSet.AnyAsync(predicate);
+        }
+
         public virtual async Task<IEnumerable<T>> FindAsync(
             Expression<Func<T, bool>> predicate)
         {

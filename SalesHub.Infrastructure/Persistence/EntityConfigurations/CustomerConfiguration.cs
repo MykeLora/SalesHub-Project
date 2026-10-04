@@ -28,7 +28,13 @@ namespace SalesHub.Infrastructure.Persistence.EntityConfigurations
                 .IsRequired()
                 .HasMaxLength(150);
 
-            
+            builder.Property(c => c.NationalId)
+                .IsRequired()
+                .HasMaxLength(20);
+
+            builder.HasIndex(c => c.NationalId)
+                .IsUnique();
+
             builder.Property(c => c.Email)
                 .IsRequired()
                 .HasMaxLength(254);
