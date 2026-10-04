@@ -33,6 +33,14 @@ namespace SalesHub.Api.Controllers
             return StatusCode(response.StatusCode, response);
         }
 
+        [HttpGet("national-id/{nationalId}")]
+        public async Task<ActionResult<ApiResponse<CustomerDto>>> GetByNationalId(string nationalId)
+        {
+            var response = await _customerService
+                .GetByNationalIdAsync(nationalId);
+
+            return StatusCode(response.StatusCode, response);
+        }
 
         [HttpPost]
         public async Task<ActionResult<ApiResponse<CustomerDto>>> Create(
