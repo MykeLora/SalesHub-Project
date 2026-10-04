@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SalesHub.Application.Interface;
 using SalesHub.Application.Interface.Repositories;
+using SalesHub.Application.Interface.Services.Sale;
 using SalesHub.Infrastructure.Persistence.Context;
 using SalesHub.Infrastructure.Persistence.Repositories;
 using SalesHub.Infrastructure.Persistence.UnitOfWork;
@@ -34,6 +35,8 @@ namespace SalesHub.Ioc.DependencyInjection
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ISaleRepository, SaleRepository>();
+            services.AddScoped<ISaleDetailRepository, SaleDetailRepository>();
 
             services.AddScoped<IUnitOfwork, UnitOfWork>();
 
