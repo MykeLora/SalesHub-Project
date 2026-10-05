@@ -35,6 +35,7 @@ namespace SalesHub.Ioc.DependencyInjection
                 cfg.AddProfile<UserProfile>();
                 cfg.AddProfile<SaleProfile>();
                 cfg.AddProfile<SaleDetailProfile>();
+                cfg.AddProfile<InventoryMovementProfile>();
 
             });
 
@@ -48,6 +49,8 @@ namespace SalesHub.Ioc.DependencyInjection
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ISaleService, SaleService>();
             services.AddScoped<ISaleDetailService, SaleDetailService>();
+            services.AddScoped<IInventoryMovementService, InventoryMovementService>();
+
 
             services.AddScoped<ISaleNumberGenerator, SaleNumberGenerator>();
             services.AddScoped<IDiscountCalculator, PercentageDiscountCalculator>();

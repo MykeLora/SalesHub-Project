@@ -37,7 +37,12 @@ namespace SalesHub.Infrastructure.Persistence.EntityConfigurations
                 .HasConversion<string>()
                 .HasMaxLength(20);
 
-            
+            builder.Property(m => m.PreviousStock)
+                .IsRequired(); 
+
+            builder.Property(m => m.ResultingStock)
+                .IsRequired();
+
             builder.Property(im => im.Quantity)
                 .IsRequired();
 
